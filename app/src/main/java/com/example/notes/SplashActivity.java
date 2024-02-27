@@ -1,15 +1,18 @@
 package com.example.notes;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.notes.utils.Constants;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +24,20 @@ public class SplashActivity extends AppCompatActivity {
         final Runnable splash = new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+
+
+                boolean userLogged = prefs.getPref(Constants.PREFS_USER); //MODE_WORLD_READABLE //MODE_WORLD_WRITEABLE
+
+                Intent intent;
+
+                if (userLogged){
+                    intent = new Intent(SplashActivity.this, NotesActivity.class);
+
+                }else{
+                    intent = new Intent(SplashActivity.this, LoginActivity.class);
+
+                }
+
                 startActivity(intent);
                 finish();
             }

@@ -1,6 +1,7 @@
 package com.example.notes;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -11,7 +12,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+import com.example.notes.utils.Constants;
+
+public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
 
                 if (username.equals("max") && password.equals("123")) {
+                    prefs.setPref(Constants.PREFS_USER, true);
+
                     Intent intent = new Intent(LoginActivity.this, NotesActivity.class);
                     intent.putExtra("username", username);
                     intent.putExtra("password", password);
@@ -35,12 +40,12 @@ public class LoginActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(LoginActivity.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
                 }
-                
-
 
             }
         });
 
     }
+
+
 }
 
