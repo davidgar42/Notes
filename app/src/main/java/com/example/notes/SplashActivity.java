@@ -1,12 +1,11 @@
 package com.example.notes;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.notes.notes.NotesActivity;
 import com.example.notes.utils.Constants;
 
 import java.util.Timer;

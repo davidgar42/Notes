@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Notes"
         tools:targetApi="31">
-        <activity android:name=".NotesActivity" />
+        <activity android:name=".notes.NotesActivity" />
         <activity android:name="com.example.notes.LoginActivity" />
         <activity
             android:name="com.example.notes.SplashActivity"
@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.notes.notes.DetailNoteActivity" />
     </application>
 
 </manifest>
